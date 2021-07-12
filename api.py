@@ -1,9 +1,5 @@
 from flask import Flask,request,jsonify,Response
 import os
-import json
-import datetime
-import io
-import base64
 import numpy 
 import cv2
 from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
