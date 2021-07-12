@@ -100,13 +100,8 @@ def index():
 	# show the output image
         print(count)
         return count
-        cv2.imshow("Output", img)
-        cv2.waitKey(0)        
-        
-    
-        return Response("Working", status=201)
-
-
+        #cv2.imshow("Output", img)
+        #cv2.waitKey(0)        
 
 if __name__=="__main__":
     app.run(host='0.0.0.0', port=port, debug=True)
