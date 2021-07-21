@@ -9,6 +9,10 @@ from tensorflow.keras.models import load_model
 port = int(os.environ.get("PORT", 5000))
 app = Flask(__name__)
 
+@app.route("/test",methods=["GET","POST"])
+def test():
+    return {"Success":200}
+
 @app.route("/classify",methods=["GET","POST"])
 def index():
     if request.method == 'POST':
