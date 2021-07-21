@@ -6,7 +6,7 @@ from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
 from tensorflow.keras.preprocessing.image import img_to_array
 from tensorflow.keras.models import load_model
 
-port = int(os.environ.get("PORT", 5000))
+port = int(os.environ.get("PORT", 80))
 app = Flask(__name__)
 
 @app.route("/test",methods=["GET","POST"])
