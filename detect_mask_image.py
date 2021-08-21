@@ -6,7 +6,7 @@ import numpy as np
 import cv2
 import os
 
-img_path="./images/pic2.jpg"
+img_path="./images/yo.jpg"
 def mask_image():
 	# load our serialized face detector model from disk
 	print("[INFO] loading face detector model...")

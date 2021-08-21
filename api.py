@@ -1,6 +1,7 @@
 from flask import Flask,request,jsonify,Response
 import os
-import numpy 
+import numpy
+import base64
 import cv2
 from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
 from tensorflow.keras.preprocessing.image import img_to_array
@@ -16,7 +17,7 @@ def test():
 @app.route("/classify",methods=["GET","POST"])
 def index():
     if request.method == 'POST':
-        count={"mask":0,"withoutMask":0}
+        count={"mask":0,"withoutMask":0,"Message":"Classification Successful"}
         img=request.files["img"]
         image=img.read()
         npimg = numpy.fromstring(image, numpy.uint8)
@@ -98,7 +99,9 @@ def index():
                     cv2.rectangle(img, (startX, startY), (endX, endY), color, 2)
 
 	# show the output image
-        print(count)
+        string = base64.b64encode(cv2.imencode('.jpg', img)[1]).decode()
+        count["classified"]=string 
+        #print(count)
         return count
         #cv2.imshow("Output", img)
         #cv2.waitKey(0)        
